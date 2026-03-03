@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disha Agarwalla — Engineer & Builder</title>
+<meta name="description" content="Full-stack engineer with 4+ years in Web3. I pick things up fast, wear a lot of hats, and ship. Smart contracts, onboarding infra, NFT systems, game jams — whatever the thing needs, I figure it out and build it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink: #0e0e0e;
+  --paper: #f5f1ea;
+  --paper2: #ede9e0;
+  --accent: #c84b2f;
+  --accent2: #2f6bc8;
+  --muted: #8a8278;
+  --border: #d8d2c6;
+  --mono: 'JetBrains Mono', monospace;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Syne', sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* ─── GRAIN OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+/* hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--ink);
+  transition: all 0.2s;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 61px; left: 0; right: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  z-index: 99;
+  padding: 16px 24px;
+  flex-direction: column;
+  gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--ink); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  padding-top: 61px;
+}
+
+.hero-left {
+  padding: 80px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border);
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.1s;
+}
+
+.hero-right {
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards 0.3s;
+  gap: 40px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+h1 em { font-style: italic; color: var(--accent); }
+
+.hero-subtitle {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--muted);
+  margin-top: 16px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.hero-bio {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #3a3530;
+  max-width: 520px;
+}
+.hero-bio strong { color: var(--ink); font-weight: 600; }
+
+.hero-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--ink); }
+
+/* hero highlight strip */
+.hero-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+  margin-top: 8px;
+}
+.hero-strip-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.hero-strip-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-strip-value {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ─── SECTIONS SHARED ─── */
+section { border-top: 1px solid var(--border); }
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+.section-num {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+/* ─── EXPERIENCE ─── */
+.exp-grid { display: flex; flex-direction: column; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.exp-item:first-child { border-top: 1px solid var(--border); }
+.exp-item.visible { opacity: 1; transform: translateY(0); }
+
+.exp-meta-col { padding-top: 4px; }
+
+.exp-company {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.exp-period {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.exp-role {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exp-bullets li {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: #3a3530;
+  padding-left: 20px;
+  position: relative;
+}
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--border);
+  font-size: 0.8rem;
+}
+.exp-bullets li strong { color: var(--ink); font-weight: 600; }
+
+.exp-stack {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 16px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── HACKATHONS & PROJECTS GRID ─── */
+.hack-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.hack-item {
+  background: var(--paper);
+  padding: 28px 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
+}
+.hack-item.visible { opacity: 1; transform: translateY(0); }
+.hack-item:hover { background: var(--paper2); }
+
+.hack-prize {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.hack-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.hack-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ─── SKILLS ─── */
+.s-chip {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  padding: 5px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+}
+.t1 { background: #f0ebe0; border: 1px solid #c84b2f44; color: #c84b2f; }
+.t2 { background: #eaf0f8; border: 1px solid #2f6bc844; color: #2f6bc8; }
+.t3 { background: var(--paper2); border: 1px solid var(--border); color: var(--muted); }
+
+/* ─── ABOUT ─── */
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.now-block {
+  padding: 32px;
+  border: 1px solid var(--border);
+  background: var(--paper2);
+}
+
+.now-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.now-text {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #3a3530;
+}
+.now-text strong { color: var(--ink); font-weight: 400; font-style: italic; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 48px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+  .hero-right { padding: 40px 24px; gap: 32px; }
+
+  .section-inner { padding: 56px 24px; }
+
+  .exp-item { grid-template-columns: 1fr; gap: 12px; }
+  .exp-meta-col { display: flex; gap: 16px; align-items: baseline; }
+
+  .hack-grid { grid-template-columns: 1fr !important; }
+  .now-grid { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">disha agarwalla</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#hackathons">Hackathons</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#now">About</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#experience" onclick="toggleMenu()">Experience</a>
+  <a href="#hackathons" onclick="toggleMenu()">Hackathons</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#skills" onclick="toggleMenu()">Skills</a>
+  <a href="#now" onclick="toggleMenu()">About</a>
+</div>
+
+<!-- HERO -->
+<section style="border-top: none;">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Engineer & Builder</div>
+      <h1>Disha<br><em>Agarwalla</em></h1>
+      <p class="hero-subtitle">Code · Community · Craft</p>
+    </div>
+
+    <div class="hero-right">
+      <p class="hero-bio">
+        I'm a <strong>full-stack engineer</strong> with 4+ years in Web3. I pick things up fast, wear a lot of hats, and ship. Smart contracts, onboarding infra, NFT systems, game jams — whatever the thing needs, I figure it out and build it.
+      </p>
+
+      <div class="hero-links">
+        <a href="https://x.com/lla_dawn" target="_blank" class="btn btn-primary">Twitter / X ↗</a>
+        <a href="https://www.linkedin.com/in/disha-agarwalla-4b8673190/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+        <a href="https://github.com/lladawn" target="_blank" class="btn btn-secondary">GitHub</a>
+      </div>
+
+      <div class="hero-strip">
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">Based in</span>
+          <span class="hero-strip-value">India</span>
+        </div>
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">Experience</span>
+          <span class="hero-strip-value">4+ years in Web3</span>
+        </div>
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">Currently</span>
+          <span class="hero-strip-value">Building & exploring</span>
+        </div>
+        <div class="hero-strip-item">
+          <span class="hero-strip-label">Open to</span>
+          <span class="hero-strip-value">Interesting problems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Work Experience</h2>
+    </div>
+
+    <div class="exp-grid">
+
+      <div class="exp-item">
+        <div class="exp-meta-col">
+          <div class="exp-company">Tria</div>
+          <div class="exp-period">May 2023 – Sept 2024</div>
+        </div>
+        <div>
+          <div class="exp-role">Founding Engineer</div>
+          <ul class="exp-bullets">
+            <li>Architected <strong>core multi-chain onboarding infrastructure</strong> supporting EVM and Solana — including gasless transactions, account abstraction, and cross-chain execution from scratch.</li>
+            <li>Wore many hats across the full stack — protocol integrations, SDK design, front-end delivery, and whatever the product needed at each stage, including through a <strong>B2B pivot</strong> that reshaped how the product served enterprise clients.</li>
+          </ul>
+          <div class="exp-stack">TypeScript · Solidity · Pimlico · Wagmi · WalletConnect · AWS</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta-col">
+          <div class="exp-company">ETH Barcelona</div>
+          <div class="exp-period">2022 – 2023</div>
+        </div>
+        <div>
+          <div class="exp-role">Core Team</div>
+          <ul class="exp-bullets">
+            <li>Built the <strong>NFT ticketing system</strong> powering event entry at ETH Barcelona.</li>
+            <li>Designed a scavenger hunt mechanic and on-chain speaker cards with leaderboard to drive attendee engagement.</li>
+            <li>Collaborated with the Ethereum Foundation on <strong>quadratic funding</strong> integration for community grants.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta-col">
+          <div class="exp-company">DoinGud & Tevaera</div>
+          <div class="exp-period">2022</div>
+        </div>
+        <div>
+          <div class="exp-role">Core Engineer</div>
+          <ul class="exp-bullets">
+            <li><strong>DoinGud:</strong> Contributed to NFT membership launch, improving marketplace liquidity and user engagement.</li>
+            <li><strong>Tevaera:</strong> Deployed zkSync-based ERC-721 contracts for a gamified metaverse; built an on-chain <strong>Karma Points system</strong> indexed via The Graph.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta-col">
+          <div class="exp-company">Earlier Roles</div>
+          <div class="exp-period">2021</div>
+        </div>
+        <div>
+          <div class="exp-role">Developer & Researcher</div>
+          <ul class="exp-bullets">
+            <li><strong>Tezos India Fellowship:</strong> Launched Kraznik Underverse on Tezos mainnet using SmartPy and FA2 tokens. Built a 3D generative art NFT collection that raised <strong>$10,000 for Kraznik DAO</strong>.</li>
+            <li><strong>Asva Labs:</strong> Researched and integrated DeFi protocols (AutoFarm, PancakeSwap, Zapper); contributed to smart contract development.</li>
+            <li><strong>Prnts:</strong> Built a musician-focused NFT marketplace with React, Solidity, Node.js, MongoDB. Secured a Gitcoin bounty.</li>
+            <li><strong>Medblocks (IIT BHU):</strong> Engineered a decentralized EHR system exploring blockchain for secure, patient-controlled medical data.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HACKATHONS -->
+<section id="hackathons">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Hackathons</h2>
+    </div>
+
+    <div class="hack-grid" style="grid-template-columns: repeat(2,1fr)">
+      <div class="hack-item">
+        <div class="hack-prize">ETH Global Finalist</div>
+        <div class="hack-name"><a href="https://ethglobal.com/showcase/zeusdao-zwmpm" target="_blank" style="color:inherit; text-decoration:none;">ZeusDAO — NFT Hack 2022 ↗</a></div>
+        <div class="hack-desc">Token-gated live streaming for influencers. Web3 open protocol for community management — if Discord took the Web3 pill.</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-prize">Winner · IPFS Track</div>
+        <div class="hack-name"><a href="https://devfolio.co/projects/caesordao-d35a" target="_blank" style="color:inherit; text-decoration:none;">CaesarDAO — Buidl It (Polygon) ↗</a></div>
+        <div class="hack-desc">Enhanced DAO coordination with NFTs and DeFi for degen Web3 communities.</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-prize">Winner · Polygon Track</div>
+        <div class="hack-name"><a href="https://ethglobal.com/showcase/eventdao-2geka" target="_blank" style="color:inherit; text-decoration:none;">EventDAO — Road to Web3 ↗</a></div>
+        <div class="hack-desc">NFT ticketing system that became the foundation for ETH Barcelona's ticketing.</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-prize">Winner · Unstoppable Domains</div>
+        <div class="hack-name">Schelling Point — Gitcoin</div>
+        <div class="hack-desc">Extended ZeusDAO architecture for improved community coordination with decentralized identity integration.</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-prize">Developer DAO · Web3Con</div>
+        <div class="hack-name">BouncrDAO</div>
+        <div class="hack-desc">Extended ZeusDAO with live chat alongside token/NFT-gated live streaming for influencer communities.</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-prize">Winner · 3 Bounties</div>
+        <div class="hack-name"><a href="https://ethglobal.com/showcase/xanthos-unoib" target="_blank" style="color:inherit; text-decoration:none;">Xanthos — ETH Online 2022 ↗</a></div>
+        <div class="hack-desc">Public goods tools using NFT infrastructure. Won Unstoppable, Tableland, and XMTP bounties.</div>
+      </div>
+      <div class="hack-item">
+        <div class="hack-prize">Fun Build</div>
+        <div class="hack-name"><a href="https://www.linkedin.com/posts/disha-agarwalla-4b8673190_friends-activity-6828288300609089536-bYjq" target="_blank" style="color:inherit; text-decoration:none;">Friends Chain — ETH Odyssey ↗</a></div>
+        <div class="hack-desc">Friendship Day NFT project — send quoted messages as NFTs via ENS names.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIDE PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Side Projects</h2>
+    </div>
+
+    <div class="hack-grid" style="grid-template-columns: repeat(2,1fr);">
+
+      <div class="hack-item">
+        <div class="hack-prize">Game Jam · Godot</div>
+        <div class="hack-name"><a href="https://lladawn.itch.io/screen-free-town" target="_blank" style="color:inherit; text-decoration:none;">Screen Free Town ↗</a></div>
+        <div class="hack-desc">A point-and-click about people lost in their phones in public spaces — bursting their bubbles into something more beautiful. Built in Godot.</div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-prize">Game Jam · Godot</div>
+        <div class="hack-name"><a href="https://lladawn.itch.io/dusty-books-stacking" target="_blank" style="color:inherit; text-decoration:none;">Dusty Books Stacking ↗</a></div>
+        <div class="hack-desc">Stack dusty old books into a colourful tower in a cozy library. A zen physics game — "the win is not in the score, but the feels." Built in Godot.</div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-prize">NFT Community · 2022</div>
+        <div class="hack-name">JorrParivar & JorrDaarEvent</div>
+        <div class="hack-desc">Built a token-gated perks portal and NFT ticketing system for the JorrParivar community. Integrated Huddle, POAP, and Livepeer for live Web3 events.</div>
+      </div>
+
+      <div class="hack-item">
+        <div class="hack-prize">Research · IIT BHU · 2021</div>
+        <div class="hack-name"><a href="https://github.com/DishaAgarwalla/MedBlocks" target="_blank" style="color:inherit; text-decoration:none;">Medblocks ↗</a></div>
+        <div class="hack-desc">Decentralized Electronic Health Records system exploring blockchain for secure, patient-controlled medical data management.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Skills</h2>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap: 24px;">
+
+      <div>
+        <div style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;">Depth</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="s-chip t1">TypeScript</span><span class="s-chip t1">JavaScript</span><span class="s-chip t1">React.js</span><span class="s-chip t1">Node.js</span><span class="s-chip t1">Account Abstraction</span><span class="s-chip t1">EVM / Multi-chain</span><span class="s-chip t1">Wagmi</span><span class="s-chip t1">WalletConnect</span><span class="s-chip t1">Hardhat</span><span class="s-chip t1">OpenZeppelin</span><span class="s-chip t1">Pimlico</span><span class="s-chip t1">Polygon</span><span class="s-chip t1">IPFS</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent2); margin-bottom:12px;">Proficient</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="s-chip t2">Python</span><span class="s-chip t2">AWS</span><span class="s-chip t2">MongoDB</span><span class="s-chip t2">The Graph</span><span class="s-chip t2">Solidity</span><span class="s-chip t2">Solana</span><span class="s-chip t2">zkSync</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--mono); font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:12px;">Familiar</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="s-chip t3">Django</span><span class="s-chip t3">SmartPy</span><span class="s-chip t3">Tezos</span><span class="s-chip t3">Livepeer</span><span class="s-chip t3">Unstoppable Domains</span><span class="s-chip t3">Defender</span><span class="s-chip t3">Godot</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOW -->
+<section id="now">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">About</h2>
+    </div>
+
+    <div class="now-grid">
+      <div class="now-block">
+        <div class="now-label">Since Sept 2024</div>
+        <p class="now-text">
+          Deliberately slowing down to go deeper. Making games at <strong><a href="https://lladawn.itch.io" target="_blank" style="color:inherit;">lladawn.itch.io</a></strong>, writing at <strong><a href="https://breathe.living" target="_blank" style="color:inherit;">breathe.living</a></strong>, and getting curious about what it means to design experiences that actually make people feel something. Figuring out what's worth building next.
+        </p>
+      </div>
+
+      <div class="now-block">
+        <div class="now-label">What I'm drawn to</div>
+        <p class="now-text">
+          <strong>Experiential design</strong> — games, spaces, and stories that pull people out of autopilot and into presence.<br><br>
+          <strong>Storytelling & narrative</strong> — how structure and feeling work together to make something stick.<br><br>
+          <strong>Web3 + community</strong> — getting back to contributing, with all the new depth from this past year.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Disha Agarwalla</div>
+  <ul class="footer-links">
+    <li><a href="https://x.com/lla_dawn" target="_blank">Twitter</a></li>
+    <li><a href="https://www.linkedin.com/in/disha-agarwalla-4b8673190/" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com/lladawn" target="_blank">GitHub</a></li>
+    <li><a href="http://app.poap.xyz/scan/0x87f1f9b6C1A1B483753e9B77F54457AC4a0d5f9E" target="_blank">POAP</a></li>
+  </ul>
+</footer>
+
+<script>
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Scroll-triggered reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.exp-item, .hack-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
