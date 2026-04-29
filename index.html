@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Disha Agarwalla — Engineer & Builder</title>
+        <link rel="icon" href="https://avatars.githubusercontent.com/u/56966497?v=4" sizes="32x32">
+        <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/56966497?v=4">
         <meta
             name="description"
             content="Full-stack engineer with 4+ years in Web3. I pick things up fast, wear a lot of hats, and ship. Smart contracts, onboarding infra, NFT systems, game jams — whatever the thing needs, I figure it out and build it."
@@ -74,10 +76,35 @@
             }
 
             .nav-logo {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
                 font-family: var(--mono);
                 font-size: 0.72rem;
                 letter-spacing: 0.08em;
                 color: var(--muted);
+            }
+
+            .nav-logo img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .section-header {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+
+            .section-icon {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                object-fit: cover;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.03);
             }
 
             .nav-links {
@@ -630,7 +657,10 @@
     <body>
         <!-- NAV -->
         <nav>
-            <div class="nav-logo">disha agarwalla</div>
+            <div class="nav-logo">
+                <img src="https://avatars.githubusercontent.com/u/56966497?v=4" alt="Disha Agarwalla avatar" width="32" height="32" loading="lazy" decoding="async">
+                <span>disha agarwalla</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#hackathons">Hackathons</a></li>
