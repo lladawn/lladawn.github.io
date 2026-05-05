@@ -35,6 +35,11 @@
             href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
+        <script
+            defer
+            src="https://breathe-umami.vercel.app/script.js"
+            data-website-id="fe2f4017-b05b-4cd1-ae28-764b77502c50"
+        ></script>
         <style>
             *,
             *::before,
@@ -1036,11 +1041,33 @@
                     <span>Disha Agarwalla</span>
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#wins">Wins</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="#work" data-track-event="Nav Click: Work"
+                            >Work</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#experience"
+                            data-track-event="Nav Click: Experience"
+                            >Experience</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#wins" data-track-event="Nav Click: Wins"
+                            >Wins</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#about" data-track-event="Nav Click: About"
+                            >About</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#contact" data-track-event="Nav Click: Contact"
+                            >Contact</a
+                        >
+                    </li>
                 </ul>
                 <button
                     class="nav-toggle"
@@ -1056,11 +1083,36 @@
         </nav>
 
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#work" onclick="toggleMenu()">Work</a>
-            <a href="#experience" onclick="toggleMenu()">Experience</a>
-            <a href="#wins" onclick="toggleMenu()">Wins</a>
-            <a href="#about" onclick="toggleMenu()">About</a>
-            <a href="#contact" onclick="toggleMenu()">Contact</a>
+            <a
+                href="#work"
+                onclick="toggleMenu()"
+                data-track-event="Nav Click: Work"
+                >Work</a
+            >
+            <a
+                href="#experience"
+                onclick="toggleMenu()"
+                data-track-event="Nav Click: Experience"
+                >Experience</a
+            >
+            <a
+                href="#wins"
+                onclick="toggleMenu()"
+                data-track-event="Nav Click: Wins"
+                >Wins</a
+            >
+            <a
+                href="#about"
+                onclick="toggleMenu()"
+                data-track-event="Nav Click: About"
+                >About</a
+            >
+            <a
+                href="#contact"
+                onclick="toggleMenu()"
+                data-track-event="Nav Click: Contact"
+                >Contact</a
+            >
         </div>
 
         <main id="top">
@@ -1082,6 +1134,7 @@
                             <a
                                 class="btn btn-primary"
                                 href="mailto:dishaagarwalla2001@gmail.com"
+                                data-track-event="Hero CTA Click: Email me"
                                 >Email me</a
                             >
                             <a
@@ -1089,6 +1142,7 @@
                                 href="https://github.com/lladawn"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-track-event="Hero CTA Click: GitHub"
                                 >GitHub &rarr;</a
                             >
                             <a
@@ -1096,6 +1150,7 @@
                                 href="https://www.linkedin.com/in/disha-agarwalla-4b8673190/"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-track-event="Hero CTA Click: LinkedIn"
                                 >LinkedIn &rarr;</a
                             >
                             <a
@@ -1103,6 +1158,7 @@
                                 href="https://x.com/lla_dawn"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-track-event="Hero CTA Click: X / Twitter"
                                 >X / Twitter &rarr;</a
                             >
                             <a
@@ -1110,6 +1166,7 @@
                                 href="https://lladawn.itch.io"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                data-track-event="Hero CTA Click: Games"
                                 >Games &rarr;</a
                             >
                         </div>
@@ -1260,6 +1317,7 @@
                             href="https://github.com/dawn0tria?tab=overview&from=2023-12-01&to=2023-12-31"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Project Click: Tria"
                         >
                             <div class="visual-mark"><span>Tria</span></div>
                             <div>
@@ -1289,6 +1347,7 @@
                             href="https://lladawn.itch.io/screen-free-town"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Project Click: Screen Free Town"
                         >
                             <div class="visual-mark"><span>Play</span></div>
                             <div>
@@ -1315,6 +1374,7 @@
                             href="https://github.com/lladawn/ai-experiments"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Project Click: RAG experiments"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1339,6 +1399,7 @@
                             href="https://lladawn.itch.io/dusty-books-stacking"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Project Click: Dusty Books"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1363,6 +1424,7 @@
                             href="https://breathe.living"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Project Click: breathe.living"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1458,6 +1520,7 @@
                                         href="https://x.com/usetria"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        data-track-event="Company Link Click: Tria"
                                         >Tria &rarr;</a
                                     >
                                 </div>
@@ -1502,6 +1565,7 @@
                                         href="https://x.com/eth_barcelona"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        data-track-event="Company Link Click: ETH Barcelona"
                                         >ETH Barcelona &rarr;</a
                                     >
                                 </div>
@@ -1536,6 +1600,7 @@
                                         href="https://x.com/DoinGudHQ"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        data-track-event="Company Link Click: DoinGud"
                                         >DoinGud &rarr;</a
                                     >
                                     &nbsp;/&nbsp;
@@ -1543,6 +1608,7 @@
                                         href="https://x.com/tevaera"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        data-track-event="Company Link Click: Tevaera"
                                         >Tevaera &rarr;</a
                                     >
                                 </div>
@@ -1594,6 +1660,7 @@
                                             href="https://github.com/DishaAgarwalla/MedBlocks"
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            data-track-event="Project Click: Medblocks"
                                             >Medblocks</a
                                         >, a decentralized EHR system exploring
                                         patient-controlled medical data during
@@ -1629,6 +1696,7 @@
                             href="https://ethglobal.com/showcase/zeusdao-zwmpm"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Hackathon Click: ZeusDAO"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1649,6 +1717,7 @@
                             href="https://devfolio.co/projects/caesordao-d35a"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Hackathon Click: CaesarDAO"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1666,6 +1735,7 @@
                             href="https://ethglobal.com/showcase/eventdao-2geka"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Hackathon Click: EventDAO"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1683,6 +1753,7 @@
                             href="https://ethglobal.com/showcase/xanthos-unoib"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Hackathon Click: Xanthos"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1701,6 +1772,7 @@
                             href="https://github.com/CaesorDAO/Kraznik-JorrParivar"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Hackathon Click: JorrParivar"
                         >
                             <div>
                                 <div class="card-kicker">
@@ -1719,6 +1791,7 @@
                             href="https://www.linkedin.com/posts/disha-agarwalla-4b8673190_friends-activity-6828288300609089536-bYjq"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Hackathon Click: Friends Chain"
                         >
                             <div>
                                 <div class="card-kicker">Fun build · 2022</div>
@@ -1857,6 +1930,7 @@
                         <a
                             class="btn btn-primary"
                             href="mailto:dishaagarwalla2001@gmail.com"
+                            data-track-event="Contact Click: Email"
                             >Email</a
                         >
                         <a
@@ -1864,6 +1938,7 @@
                             href="https://x.com/lla_dawn"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Contact Click: X"
                             >X / Twitter</a
                         >
                         <a
@@ -1871,6 +1946,7 @@
                             href="https://github.com/lladawn"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Contact Click: GitHub"
                             >GitHub</a
                         >
                         <a
@@ -1878,6 +1954,7 @@
                             href="https://app.poap.xyz/scan/0x87f1f9b6C1A1B483753e9B77F54457AC4a0d5f9E"
                             target="_blank"
                             rel="noopener noreferrer"
+                            data-track-event="Contact Click: POAP"
                             >POAP</a
                         >
                     </div>
@@ -1896,6 +1973,23 @@
             function toggleMenu() {
                 document.getElementById("mobileMenu").classList.toggle("open");
             }
+
+            function trackEvent(eventName) {
+                if (
+                    window.umami &&
+                    typeof window.umami.track === "function"
+                ) {
+                    window.umami.track(eventName);
+                }
+            }
+
+            document
+                .querySelectorAll("[data-track-event]")
+                .forEach((element) => {
+                    element.addEventListener("click", () => {
+                        trackEvent(element.dataset.trackEvent);
+                    });
+                });
 
             const observer = new IntersectionObserver(
                 (entries) => {
@@ -1916,6 +2010,82 @@
                     ".proof, .feature-card, .timeline-item, .compact-card",
                 )
                 .forEach((element) => observer.observe(element));
+
+            const reachedSections = new Set();
+            const sectionObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (
+                            entry.isIntersecting &&
+                            !reachedSections.has(entry.target.id)
+                        ) {
+                            reachedSections.add(entry.target.id);
+                            trackEvent(
+                                `Section Reached: ${entry.target.dataset.sectionName}`,
+                            );
+                        }
+                    });
+                },
+                {
+                    rootMargin: "0px 0px -35% 0px",
+                    threshold: 0.2,
+                },
+            );
+
+            [
+                ["work", "Work"],
+                ["experience", "Experience"],
+                ["wins", "Wins"],
+                ["about", "About"],
+            ].forEach(([id, name]) => {
+                const section = document.getElementById(id);
+                if (section) {
+                    section.dataset.sectionName = name;
+                    sectionObserver.observe(section);
+                }
+            });
+
+            const reachedDepths = new Set();
+            const depthMilestones = [25, 50, 75, 100];
+            let scrollTicking = false;
+
+            function checkScrollDepth() {
+                const scrollTop =
+                    window.scrollY || document.documentElement.scrollTop;
+                const pageHeight =
+                    document.documentElement.scrollHeight -
+                    window.innerHeight;
+                const depth =
+                    pageHeight <= 0
+                        ? 100
+                        : Math.min(
+                              100,
+                              Math.round((scrollTop / pageHeight) * 100),
+                          );
+
+                depthMilestones.forEach((milestone) => {
+                    if (depth >= milestone && !reachedDepths.has(milestone)) {
+                        reachedDepths.add(milestone);
+                        trackEvent(`Scroll Depth: ${milestone}%`);
+                    }
+                });
+            }
+
+            window.addEventListener(
+                "scroll",
+                () => {
+                    if (!scrollTicking) {
+                        scrollTicking = true;
+                        window.setTimeout(() => {
+                            checkScrollDepth();
+                            scrollTicking = false;
+                        }, 200);
+                    }
+                },
+                { passive: true },
+            );
+
+            window.addEventListener("load", checkScrollDepth);
         </script>
     </body>
 </html>
